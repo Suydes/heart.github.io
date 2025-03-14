@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сердце для Любимой</title>
+    <style>
+        body {
+            background-color: #f0f0f0; /* Нежный фон */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .heart {
+            position: relative;
+            width: 100px;
+            height: 90px;
+            fill: red;
+            animation: pulse 1.5s ease-in-out infinite; /* Более плавная анимация */
+        }
+
+        .heart:before,
+        .heart:after {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 80px;
+            background: red;
+            border-radius: 50px 50px 0 0;
+        }
+
+        .heart:before {
+            left: 0;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%; 
+        }
+
+        .heart:after {
+            left: 50%;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1); /* Умеренное увеличение */
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        #text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            color: #333;
+            font-size: 20px;
+            text-align: center;
+            
+        }
+    </style>
+</head>
+<body>
+    <svg class="heart" viewBox="0 0 100 90">
+    </svg>
+    <div id="text">
+        Я люблю тебя!
+    </div>
+</body>
+</html>

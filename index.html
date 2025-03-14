@@ -6,43 +6,27 @@
     <title>Сердце для Любимой</title>
     <style>
         body {
-            background-color: #f0f0f0; /* Нежный фон */
+            background-color: #f0f0f0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
+            position: relative;
         }
 
         .heart {
             position: relative;
-            width: 100px;
-            height: 90px;
-            fill: red;
-            animation: pulse 1.5s ease-in-out infinite; /* Более плавная анимация */
+            width: 200px;
+            height: 180px;
+            animation: pulse 1.5s ease-in-out infinite;
         }
 
-        .heart:before,
-        .heart:after {
-            content: "";
-            position: absolute;
-            width: 50px;
-            height: 80px;
-            background: red;
-            border-radius: 50px 50px 0 0;
-        }
-
-        .heart:before {
-            left: 0;
-            transform: rotate(-45deg);
-            transform-origin: 0 100%; 
-        }
-
-        .heart:after {
-            left: 50%;
-            transform: rotate(45deg);
-            transform-origin: 100% 100%;
+        .heart path {
+            fill: #ff0000;
+            stroke: #ff0000;
+            stroke-width: 2;
         }
 
         @keyframes pulse {
@@ -50,25 +34,29 @@
                 transform: scale(1);
             }
             50% {
-                transform: scale(1.1); /* Умеренное увеличение */
+                transform: scale(1.1);
             }
             100% {
                 transform: scale(1);
             }
         }
+
         #text {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
             color: #333;
-            font-size: 20px;
+            font-size: 24px;
             text-align: center;
+            z-index: 1;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
         }
     </style>
 </head>
 <body>
-    <svg class="heart" viewBox="0 0 100 90">
+    <svg class="heart" viewBox="0 0 512 512">
+        <path d="M256 448l-30.164-27.211C118.718 322.442 48 258.61 48 179.095 48 114.221 97.918 64 162.4 64c36.399 0 70.717 16.742 93.6 43.947C278.882 80.742 313.199 64 349.6 64 414.082 64 464 114.221 464 179.095c0 79.516-70.719 143.348-177.836 241.694L256 448z"/>
     </svg>
     <div id="text">
         Я люблю тебя!
